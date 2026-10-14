@@ -474,9 +474,8 @@ app.on('second-instance', showWindow);
 
 app.whenReady().then(() => {
   setupSession(PARTITION);
-  // Mac/PC não dormem com o app aberto (inclusive com a tela bloqueada)
+  // Mantém o Mac/PC ativo com o app aberto, mas permite que a tela apague.
   powerSaveBlocker.start('prevent-app-suspension');
-  powerSaveBlocker.start('prevent-display-sleep');
   createTray();
   createWindow();
   startUpdateChecks();
